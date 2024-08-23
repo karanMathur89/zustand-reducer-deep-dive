@@ -1,14 +1,21 @@
 "use client"
 
 import { useCountStore } from "@/store/count-store"
+import { useUserDetailsStore } from "@/store/user-details"
 
 export default function UseStatePage() {
-  //* ZUSTAND STORE
+  //* COUNT STORE
   const count = useCountStore((state) => state.count)
   const isTyping = useCountStore((state) => state.isTyping)
   const increment = useCountStore((state) => state.increment)
   const decrement = useCountStore((state) => state.decrement)
   const toggleIsTyping = useCountStore((state) => state.toggleIsTyping)
+
+  //* USER DETAILS STORE
+  const name = useUserDetailsStore((state) => state.name)
+  const age = useUserDetailsStore((state) => state.age)
+  const changeName = useUserDetailsStore((state) => state.changeName)
+  const changeAge = useUserDetailsStore((state) => state.changeAge)
   return (
     <main className="space-y-8">
       <h1 className="text-center text-3xl font-semibold tracking-tight">
@@ -16,7 +23,8 @@ export default function UseStatePage() {
       </h1>
 
       <section className="grid justify-start gap-2">
-        <p>Count: {count}</p>
+        <h2 className="text-2xl font-semibold tracking-tight">Count section</h2>
+        <p>count: {count}</p>
         <button
           className="inline-block rounded bg-emerald-200 px-3 py-2"
           onClick={() => increment(5)}
@@ -35,6 +43,37 @@ export default function UseStatePage() {
         >
           Toggle isTyping
         </button>
+      </section>
+
+      <section className="grid justify-start gap-2">
+        <h2 className="text-2xl font-semibold tracking-tight">
+          User Details section
+        </h2>
+        <p>name: {name}</p>
+        <form className="space-y-2">
+          <p>
+            <label className="grid">
+              <span>Name</span>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => changeName(e.target.value)}
+                className="rounded border border-gray-300 p-2"
+              />
+            </label>
+          </p>
+          <p>
+            <label className="grid">
+              <span>Age</span>
+              <input
+                type="number"
+                value={age}
+                onChange={(e) => changeAge(Number(e.target.value))}
+                className="rounded border border-gray-300 p-2"
+              />
+            </label>
+          </p>
+        </form>
       </section>
     </main>
   )
