@@ -4,26 +4,39 @@ import { useReducer } from "react"
 
 type State = {
   count: number
+  name: string
 }
 
-type Action = {
-  type: "increment" | "decrement"
-  payload: number
-}
+type Action =
+  | {
+      type: "increment"
+      payload: number
+    }
+  | {
+      type: "decrement"
+      payload: number
+    }
+  | {
+      type: "setName"
+      payload: string
+    }
 
 export default function useReducerPage() {
   //* USEREDUCER
   const INITIAL_STATE = {
     count: 0,
+    name: "default",
   }
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
 
   function reducer(state: State, action: Action) {
     switch (action.type) {
       case "increment":
-        return { count: state.count + action.payload }
+        return { ...state, count: state.count + action.payload }
       case "decrement":
-        return { count: state.count - action.payload }
+        return { ...state, count: state.count - action.payload }
+      case "setName":
+        return { ...state, name: action.payload }
       default:
         throw new Error("Unknown action type")
     }
@@ -48,6 +61,18 @@ export default function useReducerPage() {
           Decrement by 1
         </button>
       </div>
+      <p className="mt-2">
+        <label className="grid justify-start">
+          <span>Name</span>
+          <input
+            value={state.name}
+            onChange={(e) =>
+              dispatch({ type: "setName", payload: e.target.value })
+            }
+            className="rounded border border-gray-300 p-2"
+          />
+        </label>
+      </p>
     </main>
   )
 }
