@@ -3,7 +3,7 @@
 import { useCountStore } from "@/store/count-store"
 
 export default function Output() {
-  const { count } = useCountStore((state) => state)
+  const { count, isTyping } = useCountStore((state) => state)
   return (
     <section className="grid gap-2 rounded border border-blue-300 bg-blue-100 p-2">
       <p className="text-xl font-semibold">Output</p>
@@ -11,6 +11,9 @@ export default function Output() {
         This is a client component in the main layout
       </p>
       <pre className="mt-4 font-bold">Count: {count}</pre>
+      <pre className="mt-4 font-bold">
+        isTyping: {isTyping ? "true" : "false"}
+      </pre>
     </section>
   )
 }
