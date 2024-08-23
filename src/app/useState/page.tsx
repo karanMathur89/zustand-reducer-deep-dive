@@ -25,19 +25,19 @@ export default function UseStatePage() {
       <section className="grid justify-start gap-2">
         <h2 className="text-2xl font-semibold tracking-tight">Count section</h2>
         <button
-          className="inline-block rounded bg-emerald-200 px-3 py-2"
+          className="inline-block rounded bg-emerald-200 px-3 py-1 active:brightness-90 active:saturate-150"
           onClick={() => increment(5)}
         >
           Increment count by 5
         </button>
         <button
-          className="inline-block rounded bg-rose-200 px-3 py-2"
+          className="inline-block rounded bg-rose-200 px-3 py-1 active:brightness-90 active:saturate-150"
           onClick={() => decrement(2)}
         >
           Decrement count by 2
         </button>
         <button
-          className="inline-block rounded bg-orange-200 px-3 py-2"
+          className="inline-block rounded bg-orange-200 px-3 py-1 active:brightness-90 active:saturate-150"
           onClick={toggleIsTyping}
         >
           Toggle isTyping
