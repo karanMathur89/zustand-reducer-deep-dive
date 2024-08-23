@@ -10,7 +10,7 @@ export default function Output() {
       <p className="border-b border-dashed border-blue-300 pb-2 text-sm text-gray-600">
         This is a client component in the main layout
       </p>
-      <pre className="mt-4 text-xl font-semibold">
+      <pre className="mt-4 font-semibold">
         {JSON.stringify({ count, isTyping }, null, 2)}
       </pre>
     </section>
