@@ -24,7 +24,6 @@ export default function UseStatePage() {
 
       <section className="grid justify-start gap-2">
         <h2 className="text-2xl font-semibold tracking-tight">Count section</h2>
-        <p>count: {count}</p>
         <button
           className="inline-block rounded bg-emerald-200 px-3 py-2"
           onClick={() => increment(5)}
@@ -49,7 +48,6 @@ export default function UseStatePage() {
         <h2 className="text-2xl font-semibold tracking-tight">
           User Details section
         </h2>
-        <p>name: {name}</p>
         <form className="space-y-2">
           <p>
             <label className="grid">
