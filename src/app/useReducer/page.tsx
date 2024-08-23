@@ -1,8 +1,8 @@
-export default function Home() {
+export default function useReducerPage() {
   return (
     <main>
       <h1 className="text-center text-3xl font-semibold tracking-tight">
-        Home
+        useReducer
       </h1>
     </main>
   )
