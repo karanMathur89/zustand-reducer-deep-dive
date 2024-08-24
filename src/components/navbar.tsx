@@ -12,6 +12,7 @@ const links: Link[] = [
   { href: "/", text: "Home" },
   { href: "/useState", text: "useState" },
   { href: "/useReducer", text: "useReducer" },
+  { href: "/useReducer-global", text: "useReducer-global" },
 ]
 
 export default function Navbar() {
